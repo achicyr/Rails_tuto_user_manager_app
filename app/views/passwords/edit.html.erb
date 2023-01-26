@@ -1,0 +1,36 @@
+
+
+<div class="container-fluid p-4 bg-body-tertiary">
+    <h3 class="container-fluid">Modifier mot de passe</h3>
+    <div class="panel-body">
+        <%= form_for @user, url: password_path, html: {class: "form-horizontal"} do |f| %>
+
+            <%= f.hidden_field :recover_password %>
+
+            <div class="form-group">
+                <%= f.label :password, "Mot de passe", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.password_field :password, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :password_confirmation, "Confirmer le mot de passe", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.password_field :password_confirmation, class: "form-control"  %>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <%= f.submit "Modifier password", class: "form-control"  %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,27 @@
+
+
+<div class="container-fluid p-4 bg-body-tertiary">
+    <h3 class="container-fluid">Mot de passe oublié</h3>
+    <div class="panel-body">
+        <%= form_for :user, url: passwords_path, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+                <%= f.label :email, "Email", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.email_field :email, class: "form-control"  %>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <%= f.submit "Envoyer le lien de réinitialisation", class: "form-control"  %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+

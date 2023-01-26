@@ -1,0 +1,53 @@
+<h1>Se connecter</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+<%= @user.inspect %>
+<% if @user && @user.errors.any? %>
+    <div class="alert alert-danger">
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<hr>
+
+
+<div class="container-fluid p-4 bg-body-tertiary">
+    <h3 class="container-fluid">Se connecter</h3>
+    <div class="panel-body">
+        <%= form_for :user, url: new_session_path, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+                <%= f.label :username, "Nom d'utilisateur, ou email", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.text_field :username, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :password, "Mot de passe", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.password_field :password, class: "form-control"  %>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <%= f.submit "Se connecter", class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <%= link_to "Mot de passe oublié ?", new_password_path, class: "btn btn-warning" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+

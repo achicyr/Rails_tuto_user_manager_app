@@ -1,0 +1,63 @@
+<% if @user.errors.any? %>
+    <div class="alert alert-danger">
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    </div>
+<% end %>
+
+
+<div class="container-fluid p-4 bg-body-tertiary">
+    <h3 class="container-fluid">Modifier compte</h3>
+    <div class="panel-body">
+        <%= form_for @user, url: profil_path, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+                <%= f.label :avatar_file, "Avatar", class: "col-md-4 control-label" %>
+                <% if @user.avatar %>
+                    <%= image_tag @user.avatar_url %>
+                <% end %>
+                <div class="col-md-6">
+                    <%= f.file_field :avatar_file, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :username, "Nom d'utilisateur", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.text_field :username, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :email, "Email", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.email_field :email, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :firstname, "Nom", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.text_field :firstname, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :lastname, "Prénom", class: "col-md-4 control-label" %>
+                <div class="col-md-6">
+                    <%= f.text_field :lastname, class: "form-control"  %>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <%= f.submit "Modifier donnée du compte", class: "form-control"  %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+
