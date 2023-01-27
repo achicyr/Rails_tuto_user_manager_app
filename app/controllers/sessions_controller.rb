@@ -6,11 +6,19 @@ class SessionsController < ApplicationController
 
   
   def new
-    puts "ok"
+    puts "okll"
   end
   def create
+    puts "okkkkkkkkkkkkkkkkkk"
     user_params = params.require(:user)
     @user = User.where(username: user_params[:username]).or(User.where(email: user_params[:username])).first
+    puts user_params[:username]
+    puts "okkkkkkkkkkkkkkkkkk"
+    puts User.where(username: user_params[:username]).inspect
+    puts "okkkkkkkkkkkkkkkkkk"
+    puts User.where(email: user_params[:username]).inspect
+    puts "okkkkkkkkkkkkkkkkkk"
+    puts @user.inspect
     puts @user.authenticate(user_params[:password])
     puts "------------\n\n\n\n\n"
     if @user and @user.authenticate(user_params[:password])

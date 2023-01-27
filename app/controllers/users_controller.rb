@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             # UserMailer.confirm(@user).deliver_now
 
             
-            redirect_to new_user_path, success: "Veuillez confirmer votre compte dans l'email enovoyé"
+            redirect_to login_path, success: "Veuillez confirmer votre compte dans l'email enovoyé"
             # redirect_to action: :new, success: "Veuillez confirmer votre compte dans l'email enovoyé"
             # redirect_to "/new"
         else

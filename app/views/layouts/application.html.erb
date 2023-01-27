@@ -45,8 +45,17 @@
               <%= current_user.username %>
             </a>
             <ul>
-              <li><%= link_to "Mon profil", profil_path %></li>
-              <li><%= link_to "Se déco", destroy_session_path, data: {turbo_method: "delete", turbo_confirm: "Are you sure ?"} %></li>
+              <li>
+                <%= link_to "Mon profil", profil_path %>
+              </li>
+              <li>
+                <%= link_to "Se déco", destroy_session_path, data: {turbo_method: "delete", turbo_confirm: "Are you sure ?"} %>
+              </li>
+              <% if isAdmin? %>
+                <li>
+                  <%= link_to "Gestion des espèces", new_admin_species_path %>
+                </li>
+              <% end %>
             </ul>
           <% else %>
             <form class="d-flex" role="search">
@@ -61,21 +70,9 @@
 
   
     <div class="container">
-      <!--
-      <% flash.each do |key| %>
+      <% flash.each do |key,value| %>
         <div class="alert alert-<%= key %>">
-          <%= flash[key] %>
-        </div>
-      <% end %>
-      -->
-      <% if flash[:success] %>
-        <div class="alert alert-success">
-          <%= flash[:success] %>
-        </div>
-      <% end %>
-      <% if flash[:danger] %>
-        <div class="alert alert-danger">
-          <%= flash[:danger] %>
+          <%= value %>
         </div>
       <% end %>
 

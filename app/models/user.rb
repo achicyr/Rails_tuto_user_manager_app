@@ -10,7 +10,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: {case_sensitive: false}, format: {with: /\A[a-zA-Z0-9_-]{2,20}\Z/, message: "Entre 2 et 20 caractère, alpha numérique, plus '-' et '_'"}
     validates :email, presence:true, uniqueness: {case_sensitive: false}
     validates :avatar_file, file: {ext: [:jpg, :jpeg, :png]}
-    validates :firstname, presence: true
+    # validates :firstname, presence: true, on: :create
     
     before_save :avatar_before_upload
     after_save :avatar_after_upload

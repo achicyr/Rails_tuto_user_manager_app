@@ -22,5 +22,11 @@ Rails.application.routes.draw do
       get 'confirm'
     end
   end
+
+  # resources :species, module: 'admin', as: "admin_species"
+  scope "superadmin", module: 'admin', as: "admin" do 
+    resources :species
+    # resources :pets
+  end
   
 end

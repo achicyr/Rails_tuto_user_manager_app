@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
     before_action :logs
     before_action :forbid_ifnot_signed_in
-    add_flash_types :success, :danger
+    add_flash_types :success, :danger, :warning
     helper_method :current_user, :user_signed_in?
 
     private
